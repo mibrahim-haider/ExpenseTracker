@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <title>Dashboard</title>
+
+</head>
+
+<body>
+
+  <div class="min-vh-100 d-flex custom-bg-gray">
+
+    <!-- side bar -->
+
+    <div class="min-vh-100 d-flex custom-bg-gray">
+
+      <aside id="sidebar" class=" vh-100 border-end shadow-lg d-none d-md-block sidebarshow ">
+        <div class="toggle-btn2 d-md-none ">
+          <img src="../images/x.svg" alt="bank" class="custom-color border border-2 " id="cross-btn">
+        </div>
+        <div class="custom-padding">
+          <h1 class=" d-flex align-items-center m-0 barheading custom-gray-800">
+            ExpenseTracker
+          </h1>
+        </div>
+        <nav class="mt-4">
+
+          <a onclick="window.location.href='/'" id="dashboard-link" class="nav__link px-4 py-3 link">
+            <span class="d-flex align-items-center me-2">
+              <embed src="../images/layout-dashboard.svg" type="image/svg+xml" width="24" height="24" />
+            </span>Dashboard</a>
+
+          <a onclick="window.location.href='/reports'" id="reports-link" class="nav__link px-4 py-3 link">
+            <span class="d-flex align-items-center me-2">
+              <embed src="../images/chart-pie.svg" type="image/svg+xml" width="24" height="24" />
+            </span>Reports</a>
+
+          <a onclick="window.location.href='/settings'" id="settings-link" class="nav__link px-4 py-3 link">
+            <span class="d-flex align-items-center me-2">
+              <embed src="../images/settings.svg" type="image/svg+xml" width="24" height="24" />
+            </span>Settings</a>
+        </nav>
+
+
+        <div class="position-absolute bottom-0">
+          <!-- logout Button -->
+          <div type="button" id="logoutbtn"
+            class="d-flex align-items-center  hover-text-dark border-top border-bottom link custom-btn-size">
+            <span class="d-flex align-items-center me-2">
+              <embed src="../images/log-out.svg" type="image/svg+xml" width="24" height="24" />
+            </span>Logout
+          </div>
+        </div>
+      </aside>
+      <!-- toggle-btn1 -->
+      <span id="sidebarToggle" class=" d-md-none toggle-btn1  position-absolute top-3 start-3 ">
+        <img src="../images/align-justify.svg" alt="bank" class="custom-color">
+      </span>
+    </div>
+
+    <!-- Main Content Area -->
+
+    <div id="content" class="d-flex flex-grow-1 custom-padding-m-2  content">
+      <!-- content  -->
+      <div class="mb-4" style="width: 100%;">
+        <!-- display section   -->
+        <div class=" flex mb-4 custom-gap ">
+          <div class="col bg-white p-4 b-rounded shadow width">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="fs-6 fw-medium text-muted mb-0">Total Balance</p>
+                <p id="balance" class="fs-4 fw-bold text-dark mb-0 ">$0.00</p>
+              </div>
+              <span>
+                <embed src="../images/piggy-bank.svg" type="image/svg+xml" width="32" height="32" />
+              </span>
+              <!-- <PiggyBank class="w-auto h-auto" /> -->
+            </div>
+          </div>
+          <div class="col bg-white p-4 b-rounded shadow width">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <p class="fs-6 fw-medium text-muted mb-0">Total Income</p>
+                <p id="totalIncome" class="fs-4 fw-bold text-success mb-0">$0.00</p>
+              </div>
+              <span class="w-auto h-auto">
+                <embed src="../images/trending-up.svg" type="image/svg+xml" width="32" height="32" />
+              </span>
+              <!-- <PiggyBank class="w-auto h-auto" /> -->
+            </div>
+          </div>
+          <div class="col bg-white p-4 b-rounded shadow width">
+            <div class="d-flex justify-content-between all align-items-center">
+              <div>
+                <p class="fs-6 fw-medium text-muted mb-0">Total Expenses</p>
+                <p id="totalExpenses" class="fs-4 fw-bold text-danger mb-0">$0.00</p>
+              </div>
+              <span class="w-auto h-auto">
+                <embed src="../images/trending-down.svg" type="image/svg+xml" width="32" height="32" />
+              </span>
+              <!-- <PiggyBank class="w-auto h-auto" /> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-box ">
+          <!-- form and history  -->
+          <div class="col-12 col-lg-8 flex-item "> <!-- imp -->
+
+            <!--      transaction-form      -->
+
+            <form class="bg-white p-4 b-rounded shadow mb-4 transaction-form">
+              <h2 class="fs-3 fw-semibold mb-3">Add Transaction</h2>
+              <div class="mb-4">
+                <div class="mb-4">
+                  <label for="amount" class="d-block fs-6 fw-medium text-secondary">Amount</label>
+                  <input id="amount" type="number"
+                    class="form-control mt-1 shadow-sm border-secondary focus:border-primary focus:ring-primary"
+                    required />
+                </div>
+                <div class="mb-4">
+                  <label for="type" class="d-block fs-6 fw-medium text-secondary">Type</label>
+                  <select id="type"
+                    class="form-select mt-1 shadow-sm border-secondary focus:border-primary focus:ring-primary">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="category" class="d-block fs-6 fw-medium text-secondary">Category</label>
+                  <input id="category" type="text"
+                    class="form-control mt-1 shadow-sm border-secondary focus:border-primary focus:ring-primary"
+                    required />
+                </div>
+                <div class="mb-4">
+                  <label for="description" class="d-block fs-6 fw-medium text-secondary">Description</label>
+                  <textarea id="description"
+                    class="form-control mt-1 shadow-sm border-secondary focus:border-primary focus:ring-primary"></textarea>
+                </div>
+                <button id="addTransactionBtn" type="submit"
+                  class="btn btn-primary form-control  my-3 py-2 rounded focus-outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                  Add Transaction
+                </button>
+              </div>
+            </form>
+
+            <!-- history  -->
+
+            <div class="mb-4 mt3 ">
+
+              <!-- heading with sort text -->
+
+              <div class="d-flex justify-content-between align-items-center mb-4 px-3">
+                <h2 class="fs-3 fw-semibold">Transaction History</h2>
+                <div id="sortStatus" class="d-flex align-items-center fs-6 text-muted">
+                  <!-- <ArrowUpDown  class="custom-size me-2 text-secondary" /> -->
+                  Sorted by date (descending)
+                </div>
+              </div>
+
+              <!-- search and  date  -->
+
+              <div
+                class=" bg-white p-4 b-rounded justify-content-between align-items-center shadow d-flex flex-wrap custom-gap mb-4">
+                <div class="flex-fill col-12 col-md-4 position-relative">
+                  <div
+                    class="position-absolute top-0 bottom-0 start-0 ps-3 d-flex align-items-center pointer-events-none">
+                    <embed src="../images/search.svg" type="image/svg+xml" width="24" height="24" />
+                  </div>
+                  <input type="text" id="search" placeholder="Search transactions..."
+                    class="form-control shadow-sm w-100 ps-5 pe-3 py-2 border border-secondary custom-placeholder focus:ring-1 focus:ring-primary focus:border-primary" />
+                </div>
+                <div class="flex-fill ">
+                  <label for="startDate" class="d-block text-sm fw-medium text-custom-gray mb-1">
+                    Start Date
+                  </label>
+                  <input id="startDate" type="date"
+                    class="form-control shadow-sm w-100 custom-border-color focus:ring-1 focus:ring-primary focus:border-primary fs-6" />
+                </div>
+                <div class="flex-fill ">
+                  <label for="endDate" class="d-block text-sm fw-medium text-custom-gray mb-1">
+                    End Date
+                  </label>
+                  <input id="endDate" type="date" min={dateRange.startDate}
+                    class="form-control shadow-sm w-100 custom-border-color focus:ring-1 focus:ring-primary focus:border-primary fs-6" />
+                </div>
+              </div>
+
+              <!-- filter    -->
+
+              <div class="d-flex align-items-center bg-white p-4 b-rounded shadow mb-4 custom-gap ">
+                <span>
+                  <embed src="../images/filter.svg" type="image/svg+xml" width="24" height="24" />
+                </span>
+                <!-- <Filter className="w-5 h-5 text-gray-500" /> -->
+                <div class="flex-fill row row-cols-1 row-cols-md-2 g-3">
+                  <div>
+                    <label for="categoryFilter" class="d-block fs-6 fw-medium text-muted mb-1">
+                      Category
+                    </label>
+                    <select id="categoryFilter"
+                      class="form-control w-100 border-secondary shadow-sm focus:border-primary focus:ring-primary">
+                      <option value="all">All Categories</option>
+                      <!-- categories added by transaction added here from js dynamically  -->
+                    </select>
+                  </div>
+                  <div>
+                    <label for="typeFilter" class="d-block fs-6 fw-medium text-muted mb-1">
+                      Type
+                    </label>
+                    <select id="typeFilter"
+                      class="form-control w-100 border-secondary shadow-sm focus:border-primary focus:ring-primary">
+                      <option value="all">All Types</option>
+                      <option value="income">Income</option>
+                      <option value="expense">Expense</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Transaction table and sort  -->
+
+              <div class="bg-white b-rounded shadow overflow-hidden ">
+                <div class="custom-overflow-x">
+                  <table class="table table-borderless mb-0">
+                    <thead class="table-bg-clr">
+                      <tr>
+                        <th scope="col" data-column="date"
+                          class=" px-4 py-3 text-start small fw-medium text-muted text-uppercase cursor-pointer sortable">
+                          <div class="d-flex align-items-center">
+                            <span class="me-1">Date</span>
+                            <!-- {sortField === 'date' && ( -->
+                            <!-- <SortIcon className="w-4 h-4" /> )-->
+
+                          </div>
+                        </th>
+                        <th scope="col" data-column="category"
+                          class=" px-4 py-3 text-start small fw-medium text-muted text-uppercase cursor-pointer sortable">
+                          <div class="d-flex align-items-center">
+                            <span class="me-1">Category</span>
+                          </div>
+                        </th>
+                        <th scope="col"
+                          class="px-4 py-3 text-start small fw-medium text-muted text-uppercase cursor-pointer ">
+                          <div class="d-flex align-items-center">
+                            <span class="me-1">Description</span>
+                          </div>
+                          <!-- if if need to sort by descruption than add data-column="Amount" and sortable in id  -->
+                        </th>
+                        <th scope="col" data-column="amount"
+                          class="px-4 py-3 text-start small fw-medium text-muted text-uppercase cursor-pointer sortable">
+                          <div class="d-flex align-items-center">
+                            <span class="me-1">Amount</span>
+                          </div>
+                        </th>
+                        <th scope="col" class="px-4 py-3 overflow-hidden"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-light" id="transactionTable">
+                      <!-- table data here   -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- budgets  -->
+
+          <div style="flex: 1;"> <!-- imp -->
+
+            <!-- budget form  -->
+
+            <form id="budgetForm" class="bg-white p-4 b-rounded shadow mb-4">
+              <h2 class="fs-3 fw-semibold mb-3">Set New Budget</h2>
+              <div class="mb-4">
+                <div class="mb-4">
+                  <label for="budgetCategory" class="d-block text-body-secondary fw-medium small">
+                    Category
+                  </label>
+                  <input type="text" id="budgetCategory"
+                    class="form-control mt-1 shadow-sm border-secondary focus:border-primary focus:ring-primary"
+                    required />
+                </div>
+                <div class="mb-4">
+                  <label for="budgetAmount" class="d-block text-body-secondary fw-medium small">
+                    Budget Amount
+                  </label>
+                  <input type="number" id="budgetAmount"
+                    class="form-control mt-1 shadow-sm border-secondary focus:border-primary focus:ring-primary"
+                    required />
+                </div>
+                <div class="mb-4">
+                  <label for="budgetPeriod" class="d-block text-body-secondary fw-medium small">
+                    Period
+                  </label>
+                  <select id="budgetPeriod"
+                    class="form-control mt-1 shadow-sm border-secondary focus:border-primary focus:ring-1 focus:ring-primary">
+                    <option value="monthly" selected>Monthly</option>
+                    <option value="yearly">Yearly</option>
+                  </select>
+                </div>
+                <button type="submit" id="setBudgetBtn"
+                  class="btn btn-primary form-control  my-3 py-2 rounded focus-outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                  Set Budget
+                </button>
+              </div>
+            </form>
+            <!-- budget list  -->
+            <div class="bg-white p-4 mb-4 b-rounded shadow">
+              <h2 class="fs-4 fw-semibold mb-4">Budget Progress</h2>
+              <div id="budgetProgressContainer" class="bg-white p-2 w-sm ">
+                <!-- Dynamic progress bars will be inserted here by JS -->
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+    const navLinkEls = document.querySelectorAll('.nav__link'); // Select all nav links
+    const currentPath = window.location.pathname.replace('/', '').toLowerCase(); // Get the current page path (e.g., "reports")
+
+    navLinkEls.forEach(navLinkEl => {
+      // Check if the nav link's id contains the current path
+      if (navLinkEl.id.includes(currentPath)) {
+        navLinkEl.classList.add('active'); // Add the 'active' class
+      }
+    });
+  </script>
+  <!-- <script  src="../js/transactions.js" ></script> -->
+  <script src="../js/logout-&-toggle.js"></script>
+  <script type="module" src="../js/dashboard.js"></script>
+  <!-- <script src="../js/home.js"></script> -->
+
+
+</body>
+
+</html>
