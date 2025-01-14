@@ -101,6 +101,17 @@
     padding: 6px 12px;
 }
 
+@media (max-width: 576px){
+    .select-month{
+        font-size: 14px;
+        padding: 5px !important;
+       
+    }
+    .month span {
+        width: 44% !important;
+        margin-bottom: 10px;
+    }
+}
 
 
 @media (max-width: 768px) {
@@ -151,7 +162,7 @@
     .chart-container{
         padding: 5px  !important;
     }
-    .container{
+    .all-container{
         padding: 3px !important;
     }
     .month{
@@ -164,7 +175,7 @@
        
     }
     .month span {
-        width: 44%;
+        width: 20%;
         margin-bottom: 10px;
     }
     #barChart {
