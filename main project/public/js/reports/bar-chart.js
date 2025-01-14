@@ -15,6 +15,7 @@ export const filterTransactionsByMonth = (selectedMonth) => {
     const filteredTransactions = [];
     return eTransactions.filter((transaction) => {
         const transactionDate = new Date(transaction.date);
+        console.log(eTransactions);
         return transactionDate >= firstDay && transactionDate <= lastDay;
     });
     
