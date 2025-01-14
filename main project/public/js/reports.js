@@ -19,8 +19,9 @@ export const fetchTransactions = async () => {
       throw new Error('Failed to fetch transactions');
     }
     const data = await response.json(); // Assuming the response contains an array of transactions
-    data.forEach((t) => {
-      t.amount = parseFloat(t.amount); // Ensure amount is a number
+     data.forEach((t) => {
+      t.amount = parseFloat(t.amount);
+      t.date = new Date(t.date).toLocaleDateString('en-GB');   // Ensure amount is a number
     });
     // / Filter transactions to include only those with type 'expense'
     const expenseTransactions = data.filter((t) => t.type === 'expense');
