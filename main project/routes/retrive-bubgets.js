@@ -16,7 +16,7 @@ router.get('/api/fsrt465hrv/budgets', async (req, res) => {
     const userId = req.session.user.id;
   
     try {
-      const query = 'SELECT * FROM budgets WHERE UserID = ?';
+      const query = 'SELECT * FROM Budgets WHERE UserID = ?';
       db.query(query, [userId], (err, results) => {
         if (err) {
           console.error('Database error:', err);
