@@ -66,18 +66,10 @@ export const updateBarChart = (filteredTransactions) => {
 const renderBarChart = (labels, data, colors) => {
     const ctx = document.getElementById("barChart").getContext("2d");
 
-  
     // Clear existing chart if any
     if (window.barChartInstance) {
         window.barChartInstance.destroy();
     }
-
-
-    // if (data.length === 0 || labels.length === 0) {
-    //     console.error("yes ");
-    //     return;
-    // }
-    
 
     window.barChartInstance = new Chart(ctx, {
         type: "bar",
@@ -96,6 +88,7 @@ const renderBarChart = (labels, data, colors) => {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false, // Allows the chart to resize dynamically
             plugins: {
                 tooltip: {
                     callbacks: {
@@ -129,23 +122,19 @@ const renderBarChart = (labels, data, colors) => {
                         font: {
                             size: 13,
                             weight: "bold",
-                            // spacing: 5,
                             family: "sans-serif",
                         },
                         padding: 10, // Add margin/padding around the labels
-
                     },
-                    // padding: { top: 10, bottom: 10 }, // Margin around the axis title
                     ticks: {
-                        color: '#b8b6b6', // Set Y-axis labels (amount values) to white
+                        color: '#b8b6b6', // Set X-axis labels to gray
+                        font: {
+                            size: (ctx) => Math.max(Math.min(ctx.chart.width / 50, 12), 10), // Dynamic font size with a minimum of 10px
+                        },
                     },
                     grid: {
                         drawOnChartArea: false, // Removes grid lines on x-axis
-
                     },
-
-                    // barPercentage: 10, // Reduce bar width (default is 0.9)
-                    // categoryPercentage: 0.6, // Adjust the gap between bars in groups
                 },
                 y: {
                     border: {
@@ -158,27 +147,32 @@ const renderBarChart = (labels, data, colors) => {
                         font: {
                             size: 13,
                             weight: "bold",
-                            // spacing: 5,
                             family: "sans-serif",
                         },
                         padding: 10, // Add margin/padding around the labels
-
                     },
-                    // margin: { top: 20, bottom: 10 }, // Margin around the axis title
                     ticks: {
                         beginAtZero: true,
-                        color: '#b8b6b6', // Set Y-axis labels (amount values) to white
+                        color: '#b8b6b6', // Set Y-axis labels (amount values) to gray
+                        font: {
+                            size: (ctx) => Math.max(Math.min(ctx.chart.height / 50, 12), 10), // Dynamic font size with a minimum of 10px
+                        },
                     },
                     grid: {
                         color: "rgba(255, 255, 255, 0.29)", // Light white grid lines
                         borderDash: [5, 5], // Dashed grid lines
-
                     },
                 },
             },
         },
     });
 
+    // Listen for window resize and resize chart instance
+    window.addEventListener('resize', () => {
+        if (window.barChartInstance) {
+            window.barChartInstance.resize();
+        }
+    });
 };
 
 
