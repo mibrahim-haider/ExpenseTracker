@@ -1,7 +1,8 @@
-*{
+* {
     font-family: sans-serif;
 
 }
+
 .chart-container {
     background-color: #1f2937;
     border-radius: 10px;
@@ -49,7 +50,8 @@
     font-size: 12px;
     display: none;
 }
-.h2{
+
+.h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -59,18 +61,21 @@
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 30px;
-    
+
 }
-.custom-padding{
+
+.custom-padding {
     padding: 1.5rem;
 }
+
 .bar-chart {
     position: relative;
     width: 100%;
-    max-width: auto ;
+    max-width: auto;
     max-height: 300px;
     margin: 0 auto;
 }
+
 .month {
     display: flex;
     align-items: center;
@@ -80,15 +85,94 @@
     /* font-weight: 500; */
     font-size: 16px;
     margin-bottom: 30px;
-   
+
 }
-.month span{
+
+.month span {
     width: 165px;
 }
-#barChart{
+
+#barChart {
     padding-right: 55px;
 }
-.barBtn{
+
+.barBtn {
     font-size: 14px;
-    padding: 6px 12px ;
+    padding: 6px 12px;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .sm-all-btn {
+        font-size: 14px !important;
+        padding: 3px 6px;
+
+    }
+    .all-pdf-img{
+        width: 18px;
+        height: 18px;
+       
+
+    }
+    .sm-btn {
+        font-size: 12px;
+        margin: 4px;
+        padding: 2px 4px !important;
+
+    }
+    embed{
+        width: 18px;
+        height: 18px;
+    }
+    .h2{
+        margin-top: 2px;
+    }
+    h1{
+        font-size: 18px;
+    }
+    .chart-heading{
+        font-size: 16px;
+    }
+    .reports-content{
+        padding: 4px;
+      
+    }
+    .all-chart{
+        padding: 5px !important;
+    }
+    .custom-padding{
+        padding: 5px !important;
+    }
+    .heading{
+        margin-top: 8px;
+    }
+    .chart-container{
+        padding: 5px  !important;
+    }
+    .container{
+        padding: 3px !important;
+    }
+    .month{
+        padding: 0px !important;
+        margin: 4px !important;
+    }
+    .select-month{
+        font-size: 14px;
+        padding: 5px !important;
+       
+    }
+    .month span {
+        width: 44%;
+        margin-bottom: 10px;
+    }
+    #barChart {
+        padding-right: 15px;
+        height: 250px;
+        margin-left: -12px !important;
+        margin-right: 0px !important;
+        
+       
+    }
 }
