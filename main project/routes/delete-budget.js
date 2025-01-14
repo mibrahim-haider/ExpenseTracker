@@ -18,7 +18,7 @@ router.delete('/api/budgets/:category/:period', async (req, res) => {
     const period = req.params.period;
   
     try {
-      const query = 'DELETE FROM budgets WHERE UserID = ? AND category = ? AND period = ?';
+      const query = 'DELETE FROM Budgets WHERE UserID = ? AND category = ? AND period = ?';
       db.query(query, [userId, category, period], (err) => {
         if (err) {
           console.error('Database error:', err);
