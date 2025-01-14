@@ -4,21 +4,23 @@ import { eTransactions, fetchTransactions } from '../reports.js';
 
 
 export const filterTransactionsByMonth = (selectedMonth) => {
-    if (!selectedMonth ) {
-        console.error("Invalid selectedMonth or no transactions available");
+    if (!selectedMonth) {
+        console.error("Invalid selectedMonth");
         return []; // Return an empty array if no valid data
     }
 
     const [year, month] = selectedMonth.split('-');
     const firstDay = new Date(year, month - 1, 1);
     const lastDay = new Date(year, month, 0);
-    const filteredTransactions = [];
+
     return eTransactions.filter((transaction) => {
-        const transactionDate = new Date(transaction.date);
-        console.log(eTransactions);
+        // Extract the day, month, and year from the DD/MM/YYYY format
+        const [day, transMonth, transYear] = transaction.date.split('/').map(Number);
+        const transactionDate = new Date(transYear, transMonth - 1, day); // Convert to Date object
+
+        // Compare the transaction date against the range
         return transactionDate >= firstDay && transactionDate <= lastDay;
     });
-    
 };
 
 export const calculateMonthlyCategoryTotals = (filteredTransactions) => {
