@@ -64,20 +64,21 @@
 
     <!-- main content  -->
 
-    <div id="content" class="d-flex  custom-padding  content g-0">
+    <div id="content" class="d-flex  custom-padding  content g-0 custom-padding-m-2 p-4 ">
 
 
 
-      <div class="row " style="width: 100%; margin: 0px; gap: 2rem;">
+      <div class="row container" style="width: 100%; margin: 0px; gap: 2rem;" >
 
         <!-- heading and export button  -->
 
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between heading">
           <h1 class="fs-3 fw-bolder m-0">Reports & Analytics</h1>
           <span class="d-flex justify-content-between " style="gap: 1rem;">
-            <button id="exportAllButton" class="btn btn-primary d-flex align-items-center " style="font-size: 16px;">
-              <span class="me-2 mt-1 ">
-                <embed src="../images/download.svg" type="image/svg+xml" width="20" height="20" />
+            <button id="exportAllButton" class="btn btn-primary d-flex align-items-center sm-all-btn "
+              style="font-size: 16px;">
+              <span class=" me-2 mt-1 ">
+                <embed src="../images/download.svg" type="image/svg+xml" width="20" height="20" class="all-pdf-img" />
               </span> Export All PDF
             </button>
           </span>
@@ -85,22 +86,22 @@
 
         <!-- expense pie chart  -->
 
-        <div class="d-flex justify-content-center  ">
+        <div class="d-flex justify-content-center container  ">
           <div id="chartContainer" class=" p-4 rounded-lg shadow-md chart-container w-100">
             <span class="h2 ">
-              <div class="d-flex align-items-center">
-                <span class="me-2 ">
+              <div class="d-flex align-items-center mt-1">
+                <span class="ms-1 me-2 ">
                   <embed src="../images/chart-pie - blue.svg" type="image/svg+xml" width="24" height="24" />
                 </span>
-                <span class="mb-1">Expense Distribution</span>
+                <span class="mb-1 chart-heading">Expense Distribution</span>
               </div>
-              <button id="exportEButton" class="btn btn-primary d-flex align-items-center barBtn">
+              <button id="exportEButton" class="btn btn-primary d-flex align-items-center barBtn sm-btn ">
                 <span class="me-2 mt-1 ">
                   <embed src="../images/download.svg" type="image/svg+xml" width="16" height="16" />
                 </span> Export PDF
               </button>
             </span>
-            <div id="chartE" style="width: 100%; padding: 20px; text-align: center;">
+            <div id="chartE" style="width: 100%; padding: 20px; text-align: center;" class="all-chart">
               <div style="margin: 7px;">
                 <canvas id="pieChart" class="pie-chart "></canvas>
               </div>
@@ -114,22 +115,22 @@
 
         <!-- income pie chart  -->
 
-        <div class="d-flex justify-content-center  ">
+        <div class="d-flex justify-content-center container ">
           <div id="chartContainer" class=" p-4 rounded-lg shadow-md chart-container w-100">
             <span class="h2 ">
-              <div class="d-flex align-items-center">
-                <span class="me-2 ">
+              <div class="d-flex align-items-center mt-1">
+                <span class="ms-1 me-2 ">
                   <embed src="../images/chart-pie - blue.svg" type="image/svg+xml" width="24" height="24" />
                 </span>
-                <span class="mb-1">Income Distribution</span>
+                <span class="mb-1 chart-heading">Income Distribution</span>
               </div>
-              <button id="exportIButton" class="btn btn-primary d-flex align-items-center barBtn">
+              <button id="exportIButton" class="btn btn-primary d-flex align-items-center barBtn  sm-btn ">
                 <span class="me-2 mt-1 ">
                   <embed src="../images/download.svg" type="image/svg+xml" width="16" height="16" />
                 </span> Export PDF
               </button>
             </span>
-            <div id="chartI" style="width: 100%; padding: 20px; text-align: center;">
+            <div id="chartI" style="width: 100%; padding: 20px; text-align: center;" class="all-chart">
               <div style="margin: 7px;">
                 <canvas id="incomePieChart" class="pie-chart "></canvas>
               </div>
@@ -141,29 +142,29 @@
 
         <!-- bar chart  -->
 
-        <div class="d-flex justify-content-center mb-4  ">
+        <div class="d-flex justify-content-center mb-4 container  ">
           <div id="chartContainer" class=" p-4 rounded-lg shadow-md  chart-container w-100">
             <span class="h2 mb-3 ">
-              <div class="d-flex align-items-center">
-                <span class="me-2 ">
+              <div class="d-flex align-items-center mt-1">
+                <span class="ms-1 me-2 ">
                   <embed src="../images/chart-no-axes-column-increasing.svg" type="image/svg+xml" width="24"
                     height="24" />
                 </span>
-                <span class="mb-1">Top Monthly Spending Categories</span>
+                <span class="mb-1 me-1 chart-heading">Top Monthly Spending Categories</span>
               </div>
-              <button id="exportBarButton" class="btn btn-primary d-flex align-items-center barBtn">
+              <button id="exportBarButton" class="btn btn-primary d-flex align-items-center barBtn sm-btn">
                 <span class="me-2 mt-1 ">
                   <embed src="../images/download.svg" type="image/svg+xml" width="16" height="16" />
                 </span> Export PDF
               </button>
             </span>
-            <div class=" month">
+            <div class=" month " class="all-chart" >
               <span>
                 <!-- <label for="monthInput" class="form-label me-2 mt-1">Select Month To Analytics :</label> -->
-                <input type="month" id="monthInput" class="form-control p-2" value="">
+                <input type="month" id="monthInput" class="form-control p-2 select-month" value="">
               </span>
             </div>
-            <div id="barMonthlyChart" style="width: 100%; padding: 20px; text-align: center;">
+            <div id="barMonthlyChart" style="width: 100%; padding: 20px; text-align: center;" class="all-chart">
 
               <div>
                 <canvas id="barChart" class="bar-chart "></canvas>
