@@ -125,6 +125,11 @@ p.custom {
         margin-left: 0.75rem; /* Equivalent to sm:ml-3 */
     }
 }
+@media (max-width: 576px){
+    .custom2-btn {
+        margin-top: 10px;
+    }
+}
 @media (min-width: 768px) { /* Equivalent to md: */
     /* h1 tag  */
     .display-md-6 {
