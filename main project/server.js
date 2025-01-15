@@ -135,7 +135,7 @@ app.get('/api/user/id/from/cookies', (req, res) => {
 
 // Catch-all middleware for unmatched routes and send 404.html file 
 app.use( (req, res) => {
-  const directoryPath = path.join('D:\\main project\\public\\html');
+  const directoryPath = path.join(__dirname, 'public', 'html');
   const errorFilePath = path.join(directoryPath, '404.html');
     res.status(404).sendFile(errorFilePath, (err) => {
         if (err) {
